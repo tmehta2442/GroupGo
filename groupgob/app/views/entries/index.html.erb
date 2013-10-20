@@ -1,0 +1,14 @@
+<h1>Hello</h1>
+<%= form_tag :action => 'index' do %>
+	<p>Where to?
+		<%= text_field_tag 'where_to', @where_to%></p>
+	<p>What for?
+		<%= text_field_tag 'what_for', @what_for%></p>
+	<%= submit_tag 'Let\'s go' %>
+	<% end %>
+<p>
+<p>
+testing to see if outputs where to & what for
+<p>
+<%= @where_to %></br>
+<%= @what_for %>
