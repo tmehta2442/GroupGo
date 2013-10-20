@@ -1,0 +1,13 @@
+<%= form_for @user, url: {action: "create"}, method: "post" do |f| %>
+<%= f.label :name %><br>
+<%= f.text_field :name %>
+<br>
+<%= f.label :description %><br>
+<%= f.text_area :description, size: "10X10" %>
+<br>
+<%= f.submit "SAVE MY USER" %>
+<% end %>
+
+<!-- <form action="/users" method="post">
+<input id="user_name_input" name="user[name]">
+</form> -->
