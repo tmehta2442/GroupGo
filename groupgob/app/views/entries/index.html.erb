@@ -1,14 +1,88 @@
-<h1>Hello</h1>
-<%= form_tag :action => 'index' do %>
-	<p>Where to?
+<h1>GroupGo </h1>
+
+<%= form_tag("/entries",  method: "post") do %>
+	<p> Where to?
 		<%= text_field_tag 'where_to', @where_to%></p>
-	<p>What for?
+	<p> What for?
 		<%= text_field_tag 'what_for', @what_for%></p>
+    <%= token_tag form_authenticity_token %>
 	<%= submit_tag 'Let\'s go' %>
-	<% end %>
+<% end %>
+
+
 <p>
 <p>
-testing to see if outputs where to & what for
+testing to see if outputs where_to & what_for actually work
 <p>
-<%= @where_to %></br>
-<%= @what_for %>
+where_to: <%= @where_to %></br>
+what_for: <%= @what_for %>
+<p>
+previous entries for where_to
+<ul>
+<% @entries.each do |entry| %>
+<br>
+<li><%= entry.where_to %></li>
+<li><%= entry.what_for %></li>
+<% end %>
+</ul>
+
+<!-- <body>
+<h1>Email list</h1>
+ <input type="textbox" id="entry1" />
+    <input type="button" value="Add Email" onclick="addList('EmailListForm')" />
+ 
+    <input type="button" value="Delete Email" onclick="deleteList('EmailListForm')" />
+ 
+    <table id="EmailListForm" width="350px" border="1">
+     
+    </table>
+ Number of Emails in List <a id="emailTotal"></a>  
+
+<p>
+<h1>url maker</h1>
+    copy this url
+    <input type="textbox" size="35" value="localhost:3000/<%= @what_for %>" id="urlmaker" />
+
+
+</body> -->
+
+<!-- moved js files to applicaiton.js, need headers if uncomment
+    function addList(emailList) {
+    var email = document.getElementById(emailList);
+    var number = email.rows.length;
+    var row = email.insertRow(number);
+    var b=document.getElementById('entry1').value;
+    var first_cell = row.insertCell(0);
+    var element1 = document.createElement("input");
+        element1.type = "text";
+        element1.style.width="100%";
+        element1.name = "txtbox[]";
+        element1.value=b;
+        first_cell.appendChild(element1);
+    var second_cell = row.insertCell(1);
+    var element2 = document.createElement("input");
+            element2.type = "checkbox";
+            element2.name="chkbox[]";
+            second_cell.appendChild(element2);
+document.getElementById('entry1').value=" ";
+document.getElementById('emailTotal').innerHTML= number + 1;
+       }
+ 
+    function deleteList(emailList) {
+    var email = document.getElementById(emailList);
+    var number = email.rows.length;
+        for(var i=0; i<number; i++) {
+            var row = email.rows[i];
+            var chkbox = row.cells[1].childNodes[0];
+            if(null != chkbox && true == chkbox.checked) {
+                email.deleteRow(i);
+                number--;
+                i--;
+              
+ document.getElementById('emailTotal').innerHTML= number;
+ 
+            }
+        }
+    }
+ 
+ -->

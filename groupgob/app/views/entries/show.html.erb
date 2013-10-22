@@ -1,0 +1,24 @@
+<body>
+<h1>Email list</h1>
+<p>
+test to see if where_to & what_for are passing
+<p>
+<%= @entry.where_to %></br>
+<%= @entry.what_for %></br>
+ <input type="textbox" id="entry1" />
+    <input type="button" value="Add Email" onclick="addList('EmailListForm')" />
+ 
+    <input type="button" value="Delete Email" onclick="deleteList('EmailListForm')" />
+ 
+    <table id="EmailListForm" width="350px" border="1">
+     
+    </table>
+ Number of Emails in List <a id="emailTotal"></a>  
+
+<p>
+<h1>url maker</h1>
+    copy this url
+    <input type="textbox" size="35" value="localhost:3000/<%= @entry.id %>" id="urlmaker" />
+
+
+</body>

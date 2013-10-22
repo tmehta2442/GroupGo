@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Groupgob</title>
+  <title>GroupgoD</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%= flash[:errors] if flash[:errors] %>
+<% if current_user %>
+	<%= link_to "Logout", logout_path %>
+<% end %>
 <%= yield %>
 
 </body>
