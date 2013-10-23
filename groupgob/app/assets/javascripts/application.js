@@ -16,6 +16,17 @@
 
 
 function addList(emailList) {
+
+
+    var entry = document.getElementById("entry1").value;
+    var entry_id = document.getElementById("entry_id").value;
+    $.ajax({
+        type: "post",
+        data: {entry_id:  entry_id, email: entry},
+        url: "/groups"
+    })
+
+
     var email = document.getElementById(emailList);
     var number = email.rows.length;
     var row = email.insertRow(number);

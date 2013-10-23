@@ -5,15 +5,20 @@ test to see if where_to & what_for are passing
 <p>
 <%= @entry.where_to %></br>
 <%= @entry.what_for %></br>
+
  <input type="textbox" id="entry1" />
+ 		<input type="hidden" id="entry_id" value="<%= @entry.id %>">
     <input type="button" value="Add Email" onclick="addList('EmailListForm')" />
  
     <input type="button" value="Delete Email" onclick="deleteList('EmailListForm')" />
- 
+
     <table id="EmailListForm" width="350px" border="1">
      
     </table>
- Number of Emails in List <a id="emailTotal"></a>  
+ Emails in list
+<% @groups.each do |group| %>
+<p><%= group.email %><p>
+<% end %>
 
 <p>
 <h1>url maker</h1>
