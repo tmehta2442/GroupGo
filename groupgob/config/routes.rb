@@ -5,10 +5,15 @@ Groupgoc::Application.routes.draw do
   resources :users
   resources :sessions
   resources :groups
+  resources :messages
 
   # get "/search" => "entries#create"
 	get "/logout" => "sessions#destroy"
+	get "/submit" => "entries#submit"
+	get "/message" => "messages#submit"
+	
   get "/:id" => "entries#show", as: "entry"
+# message board
 
 
 end

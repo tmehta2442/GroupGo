@@ -21,9 +21,20 @@ test to see if where_to & what_for are passing
 <% end %>
 
 <p>
+<form action="/submit">
+	<input name="entry_id" type="hidden" value="<%= @entry.id %>">
+	<button> SEND EMAILS! </button>
+</form>
 <h1>url maker</h1>
     copy this url
-    <input type="textbox" size="35" value="localhost:3000/<%= @entry.id %>" id="urlmaker" />
+    <input type="textbox" size="20" value="localhost:3000/<%= @entry.id %>" id="urlmaker" />
+<!-- trying message board -->
+<%= form_tag("/message", method: "get") do %>
+  <%= label_tag(:message, "Message:") %>
+  <%= text_area_tag(:message) %>
+  <%= submit_tag("Post Message") %>
+<% end %>
 
 
+</div>
 </body>
