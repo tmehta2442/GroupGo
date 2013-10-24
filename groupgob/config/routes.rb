@@ -12,7 +12,7 @@ Groupgoc::Application.routes.draw do
 	get "/submit" => "entries#submit"
 	get "/message" => "messages#submit"
 	
-  get "/:id" => "entries#show", as: "entry"
+  get "/entry/:id" => "entries#show", as: "entry"
 # message board
 
 

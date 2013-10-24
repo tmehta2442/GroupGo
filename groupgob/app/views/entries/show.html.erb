@@ -1,33 +1,37 @@
 <body>
-<h1>Email list</h1>
 <p>
-test to see if where_to & what_for are passing
-<p>
+
+
 <%= @entry.where_to %></br>
 <%= @entry.what_for %></br>
+<div class="row">
+  <div class="span3"></div>
+    <div class="span6">
+      <h1>Email list</h1>
+       <input type="textbox" id="entry1" />
+       		<input type="hidden" id="entry_id" name="entry_id" value="<%= @entry.id %>">
+          <input type="button" value="Add Email" onclick="addList('EmailListForm')" />
+       
+          <input type="button" value="Delete Email" onclick="deleteList('EmailListForm')" />
 
- <input type="textbox" id="entry1" />
- 		<input type="hidden" id="entry_id" name="entry_id" value="<%= @entry.id %>">
-    <input type="button" value="Add Email" onclick="addList('EmailListForm')" />
- 
-    <input type="button" value="Delete Email" onclick="deleteList('EmailListForm')" />
+          <table id="EmailListForm" width="350px" border="1">
+           
+          </table>
 
-    <table id="EmailListForm" width="350px" border="1">
-     
-    </table>
- Emails in list
-<% @groups.each do |group| %>
-<p><%= group.email %><p>
-<% end %>
-
+          Emails in list
+          <% @groups.each do |group| %>
+          <li><p><%= group.email %><p></li>
+          <% end %>
+        
 <p>
 <form action="/submit">
 	<input name="entry_id" type="hidden" value="<%= @entry.id %>">
 	<button> SEND EMAILS! </button>
 </form>
+</div>
 <h1>url maker</h1>
     copy this url
-    <input type="textbox" size="20" value="localhost:3000/<%= @entry.id %>" id="urlmaker" />
+    <input type="textbox" size="20" value="localhost:3000/entry/<%= @entry.id %>" id="urlmaker" />
 <!-- trying message board -->
 <%= form_tag("/message", method: "get") do %>
 	 <input type="hidden" id="entry_id" name="entry_id" value="<%= @entry.id %>">
@@ -39,10 +43,8 @@ test to see if where_to & what_for are passing
 Messages Left <br>
 <% if @messages %>
 <% @messages.each do |message| %>
-	<%= message.message %> <br>
+	<li><%= message.message %></li> <br>
 <% end %>
 <% end %>
-
-
 </div>
 </body>

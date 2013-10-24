@@ -12,3 +12,18 @@
  *= require twitter/bootstrap
  *= require_tree .
  */
+/*body { 
+     background-image: url('url1.jpeg');
+     background-attachment: fixed;
+     background-position: center;
+     background-repeat: no-repeat;
+
+ }*/
+
+ body {
+ 	background:url('url1.jpeg');repeat center center fixed;
+ 	-webkit-background-size: cover;
+ 	-moz-background-size: cover;
+ 	-o-background-size: cover;
+ 	background-size: cover;
+ }
