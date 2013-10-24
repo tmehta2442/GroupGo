@@ -8,22 +8,43 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require twitter/bootstrap
+ *= require_self
  *= require_tree .
  */
-/*body { 
-     background-image: url('url1.jpeg');
+ body { 
+     background-image: url('url2.jpg');
      background-attachment: fixed;
      background-position: center;
      background-repeat: no-repeat;
+     background-size: 100%;
 
- }*/
+ }
 
- body {
- 	background:url('url1.jpeg');repeat center center fixed;
+/* html {
+ 	background:url('url1.jpeg');center center no-repeat fixed;
  	-webkit-background-size: cover;
  	-moz-background-size: cover;
  	-o-background-size: cover;
  	background-size: cover;
- }
+ }*/
+
+ /*body  {
+ 	background:url('url2.jpg');center center no-repeat fixed
+ 	background-position: left bottom;
+}
+
+ img.bg  {
+ 	min-height: 50%;
+ 	max-width: 500px;
+
+ 	width: 50%;
+ 	height: auto;
+
+ 	/*position: fixed;*/
+ /*	top: 0;
+ 	left: 0;*/
+
+ 	/*background-position: left bottom;
+
+ }*/
