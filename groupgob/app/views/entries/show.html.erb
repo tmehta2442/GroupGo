@@ -7,7 +7,7 @@ test to see if where_to & what_for are passing
 <%= @entry.what_for %></br>
 
  <input type="textbox" id="entry1" />
- 		<input type="hidden" id="entry_id" value="<%= @entry.id %>">
+ 		<input type="hidden" id="entry_id" name="entry_id" value="<%= @entry.id %>">
     <input type="button" value="Add Email" onclick="addList('EmailListForm')" />
  
     <input type="button" value="Delete Email" onclick="deleteList('EmailListForm')" />
@@ -30,9 +30,17 @@ test to see if where_to & what_for are passing
     <input type="textbox" size="20" value="localhost:3000/<%= @entry.id %>" id="urlmaker" />
 <!-- trying message board -->
 <%= form_tag("/message", method: "get") do %>
+	 <input type="hidden" id="entry_id" name="entry_id" value="<%= @entry.id %>">
   <%= label_tag(:message, "Message:") %>
   <%= text_area_tag(:message) %>
   <%= submit_tag("Post Message") %>
+<% end %>
+
+Messages Left <br>
+<% if @messages %>
+<% @messages.each do |message| %>
+	<%= message.message %> <br>
+<% end %>
 <% end %>
 
 

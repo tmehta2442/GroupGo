@@ -17,6 +17,7 @@ class EntriesController < ApplicationController
 	def show
 		@entry = current_user.entries.find(params[:id].to_i)
 		@groups = @entry.groups
+		@messages = @entry.messages
 	end
 
 	def submit
