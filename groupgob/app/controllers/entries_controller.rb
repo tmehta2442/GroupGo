@@ -25,9 +25,10 @@ class EntriesController < ApplicationController
 		puts "**"*50
 		#p entry
 
-
+		id = params[:entry_id]
+		groups = "where user name should be"
 		entry.groups.each do |group|
-			GroupMailer.friend_send(group.email).deliver
+			GroupMailer.friend_send(group.email, id, groups).deliver
 		end
 
 		redirect_to entry_path(entry.id)

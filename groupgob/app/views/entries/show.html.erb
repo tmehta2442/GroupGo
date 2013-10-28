@@ -1,50 +1,56 @@
 <body>
-<p>
+<div class="container">
+  <div style="float: left">
+    <!-- @entry.where_to</br>
+    @entry.what_for</br> -->
+    <h3>Invite your friends!</h3>
+    <input type="textbox" id="entry1" size="30"/>
+ 		<input type="hidden" id="entry_id" name="entry_id" value="<%= @entry.id %>"></p>
+    <input type="button" value="Add Email" onclick="addList('EmailListForm')" />
+ 
+    <input type="button" value="Delete Email" onclick="deleteList('EmailListForm')" />
 
+    <table id="EmailListForm" width="350px" border="1">
+     
+    </table>
+    Emails in list
+    <% @groups.each do |group| %>
+    <li><%= group.email %></br></li>
+    <% end %>
+    <p>
+    <form action="/submit">
+     <input name="entry_id" type="hidden" value="<%= @entry.id %>">
+     <button> SEND EMAILS! </button>
+    </form>
+  </div>
 
-<%= @entry.where_to %></br>
-<%= @entry.what_for %></br>
-<div class="row">
-  <div class="span3"></div>
-    <div class="span6">
-      <h1>Email list</h1>
-       <input type="textbox" id="entry1" />
-       		<input type="hidden" id="entry_id" name="entry_id" value="<%= @entry.id %>">
-          <input type="button" value="Add Email" onclick="addList('EmailListForm')" />
-       
-          <input type="button" value="Delete Email" onclick="deleteList('EmailListForm')" />
-
-          <table id="EmailListForm" width="350px" border="1">
-           
-          </table>
-
-          Emails in list
-          <% @groups.each do |group| %>
-          <li><p><%= group.email %><p></li>
-          <% end %>
-        
-<p>
-<form action="/submit">
-	<input name="entry_id" type="hidden" value="<%= @entry.id %>">
-	<button> SEND EMAILS! </button>
-</form>
-</div>
-<h1>url maker</h1>
+  <div style="float: center">
+    <%= form_tag("/message", method: "get") do %>
+	  <input type="hidden" id="entry_id" name="entry_id" value="<%= @entry.id %>">
+    <%= label_tag(:message, "Leave a message:") %><p>
+    <%= submit_tag("Post Message") %>
+    <%= text_area_tag(:message, "", :size => "40x5")%>
+    
+    <% end %>
+  </div>
+  <div style="float: left">
+  <h4>Link to this page!</h4>
     copy this url
-    <input type="textbox" size="20" value="localhost:3000/entry/<%= @entry.id %>" id="urlmaker" />
-<!-- trying message board -->
-<%= form_tag("/message", method: "get") do %>
-	 <input type="hidden" id="entry_id" name="entry_id" value="<%= @entry.id %>">
-  <%= label_tag(:message, "Message:") %>
-  <%= text_area_tag(:message) %>
-  <%= submit_tag("Post Message") %>
-<% end %>
-
-Messages Left <br>
-<% if @messages %>
-<% @messages.each do |message| %>
-	<li><%= message.message %></li> <br>
-<% end %>
+    <input type="textbox" size="20" value="http://groupgo.herokuapp.com/entry/<%= @entry.id %>" id="urlmaker" />
+  <table class="table">
+  </div>
+  </br>
+  </br>
+  </br>
+  <caption><h3>Messages Left</h3></caption>
+  <thead>
+      <tr>
+    <% if @messages %>
+    <% @messages.each do |message| %>
+    	<th><blockquote><%= message.message %></blockquote></th>
+    </tr>
+  </thead>
+<% end %> 
 <% end %>
 </div>
 </body>

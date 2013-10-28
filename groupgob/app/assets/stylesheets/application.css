@@ -8,7 +8,6 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require twitter/bootstrap
  *= require_self
  *= require_tree .
  */
@@ -20,6 +19,11 @@
      background-size: 100%;
 
  }
+
+div.row  {
+	background-color: rgba(255, 255, 255, .5);
+}
+
 
 /* html {
  	background:url('url1.jpeg');center center no-repeat fixed;

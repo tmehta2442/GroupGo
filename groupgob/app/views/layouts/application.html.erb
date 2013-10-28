@@ -16,14 +16,15 @@ end -->
 <ul class="nav nav-pills">
 	<li><a href="/">Home</a></li>
 	<% if current_user %>
-		<li><a href="/entry/<%= current_user.id %>">Trip</a></li>
-	<% end %>
-	<li><a href="#">Messages</a></li>
+		<li><a href="/entry/<%= current_user.id + 1 %>">Trip</a></li>
+	
+	<li><a href="/entry/<%= current_user.id + 1 %>">Messages</a></li>
 			<li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-				User
+				<%= current_user.username %>
 				<b class="caret"></b>
 		</a>
+		<% end %>
 		<ul class="dropdown-menu"> 
 	<li><a href="/users/new">Sign Up</a></li>
 	<li><a href="/sessions/new">Log In</a></li>
@@ -39,8 +40,6 @@ end -->
 		<div class="span3"></div>
 		<div class="span6"><%= yield %></div>
 		<div class="span2">
-			<h2>About Us</h2>
-			lskaj fdgsdg  sdgsdf sd g sdfgsdf gdsfg  
 		</div>
 		<div class="span1"></div>
 	</div>

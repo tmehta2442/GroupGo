@@ -1,9 +1,11 @@
+
+
 <h1>GroupGo </h1>
 
 <%= form_tag("/entries",  method: "post") do %>
-	<p> Where to?
+	<p> Where to? &#8199
 		<%= text_field_tag 'where_to', @where_to%></p>
-	<p> What for?
+	<p> What for? &#8195
 		<%= text_field_tag 'what_for', @what_for%></p>
     <%= token_tag form_authenticity_token %>
 	<%= submit_tag 'Let\'s go' %>
